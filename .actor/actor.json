@@ -1,0 +1,7 @@
+{
+	"actorSpecification": 1,
+	"name": "apify-demo",
+	"version": "0.0",
+	"buildTag": "latest",
+	"environmentVariables": {}
+}
