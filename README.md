@@ -29,5 +29,5 @@ await runCrawlerWithAddRequests();
 await Actor.exit();
 
 ```
-#### One of them adds all urls at `craler.run`, while another one adds single request via `craler.run` and the rest via `crawler.addRequests`.
+#### One of them adds all urls at `craler.run`, while another one adds single request via `craler.run` and the rest are aded one by one via `crawler.addRequests`.
 #### Run each of those examples and compare the content of `SDK_SESSION_POOL_STATE.json` with manually collected session usage stats displayed in console.
