@@ -1,4 +1,4 @@
-### This is example of weired behavior of SessionPool from crawlee package. SessionPool generates more sessions that needed and also does not respect `maxUsageCount` constraint. At the first look seems to be another concurrency issue.
+### This is example of weird behavior of SessionPool from crawlee package. SessionPool generates more sessions that needed and also does not respect `maxUsageCount` constraint. At the first look seems to be another concurrency issue.
 #### Install deps 
 ```sh
 npm i
