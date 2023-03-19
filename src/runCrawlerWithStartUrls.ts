@@ -41,16 +41,12 @@ export async function runCrawlerWithStartUrls() {
         /* autoscaledPoolOptions: {
             maxConcurrency: 1,
         }, */
-        requestHandler: async ({ session, request, crawler }) => {
+        requestHandler: async ({ session, request }) => {
             if (session) {
                 const data = sessionStats[session.id] ?? { urls: [], count: 0 };
                 data.count += 1;
                 data.urls.push(request.url);
                 sessionStats[session.id] = data;
-            }
-            const next = urlGenerator.next();
-            if (!next.done) {
-                crawler.addRequests([next.value]);
             }
         },
     });
