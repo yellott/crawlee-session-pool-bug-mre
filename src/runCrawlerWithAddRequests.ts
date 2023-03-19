@@ -20,11 +20,16 @@ const sessionStats: Record<string, { urls: string[]; count: number }> = {};
         see consolge.log at the bottom of this file.
 
         To sum up, manually collected stats seems to be correct.
-        One url was provided in "playwrightCrawler.run" call and another 10 were added via "crawler.addRequests" call.
+        One url was provided in "playwrightCrawler.run" call and another 10 were added one by one via "crawler.addRequests" call.
 
     CASE 2:
 
         If "autoscaledPoolOptions.maxConcurrency" is set to 1 nothing changes, behaves the same as in " CASE 1"
+
+    CASE 3:
+
+        If the rest of url added at once via "crawler.addRequests" then there are 17 sessions total in SDK_SESSION_POOL_STATE.json -
+        where "usageCount" 11 of them equals to 0 while "usageCount" of 5 another sessions equals to 8, and one session with "usageCount" equals to 4
  */
 
 export async function runCrawlerWithAddRequests() {
@@ -45,10 +50,13 @@ export async function runCrawlerWithAddRequests() {
                 data.urls.push(request.url);
                 sessionStats[session.id] = data;
             }
+
             const next = urlGenerator.next();
             if (!next.done) {
                 crawler.addRequests([next.value]);
             }
+            // Comment "crawler.addRequests" above and uncomment this to see "CASE 3"
+            /* crawler.addRequests(Array.from(urlGenerator)); */
         },
     });
 
