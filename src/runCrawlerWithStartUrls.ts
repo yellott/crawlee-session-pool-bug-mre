@@ -6,8 +6,6 @@ function* getUrls() {
     }
 }
 
-const urlGenerator = getUrls();
-
 const sessionStats: Record<string, { urls: string[]; count: number }> = {};
 /*
     CASE 1:
