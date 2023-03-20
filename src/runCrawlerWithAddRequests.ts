@@ -29,7 +29,10 @@ const sessionStats: Record<string, { urls: string[]; count: number }> = {};
     CASE 3:
 
         If the rest of url added at once via "crawler.addRequests" then there are 17 sessions total in SDK_SESSION_POOL_STATE.json -
-        where "usageCount" 11 of them equals to 0 while "usageCount" of 5 another sessions equals to 8, and one session with "usageCount" equals to 4
+        where "usageCount" 11 of them equals to 0 while "usageCount" of 5 another sessions equals to 8, and one session with "usageCount" equals to 4.
+
+        Session stats collected manually report that there were used 6 session in total where each session was used twice,
+        see consolge.log at the bottom of this file.
  */
 
 export async function runCrawlerWithAddRequests() {
