@@ -53,10 +53,10 @@ export async function runCrawlerWithAddRequests() {
 
             const next = urlGenerator.next();
             if (!next.done) {
-                crawler.addRequests([next.value]);
+                await crawler.addRequests([next.value]);
             }
             // Comment "crawler.addRequests" above and uncomment this to see "CASE 3"
-            /* crawler.addRequests(Array.from(urlGenerator)); */
+            // await crawler.addRequests(Array.from(urlGenerator));
         },
     });
 
